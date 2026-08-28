@@ -4,7 +4,9 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
+const root = join(here, "..");
 const htmlPath = join(here, "alex-car-restoration-brand-book.html");
+const vercelConfigPath = join(root, "vercel.json");
 
 assert.ok(existsSync(htmlPath), "brand-book HTML file exists");
 
@@ -38,5 +40,21 @@ assert.match(html, /href="https:\/\/tinyurl\.com\/alexcarbooking"[^>]*class="but
 assert.match(html, /class="project-showcase"/i, "photography section presents a named project showcase");
 assert.equal((html.match(/class="service-card/g) ?? []).length, 5, "five verified services render as service cards");
 assert.doesNotMatch(html, /class="[^"]*\breveal\b/i, "content does not depend on generic scroll-reveal classes");
+
+assert.ok(existsSync(vercelConfigPath), "Vercel configuration exists at the repository root");
+
+const vercelConfig = JSON.parse(readFileSync(vercelConfigPath, "utf8"));
+const rootRewrite = vercelConfig.rewrites?.find(({ source }) => source === "/");
+const assetRewrite = vercelConfig.rewrites?.find(({ source }) => source === "/assets/:path*");
+
+assert.equal(vercelConfig.$schema, "https://openapi.vercel.sh/vercel.json", "uses Vercel's current configuration schema");
+assert.equal(rootRewrite?.destination, "/brand/alex-car-restoration-brand-book.html", "serves the brand book at the site root");
+assert.equal(assetRewrite?.destination, "/brand/assets/:path*", "keeps the HTML's existing asset URLs working");
+
+const routedDocument = rootRewrite.destination.slice(1);
+const routedImage = assetRewrite.destination.replace(":path*", "datsun-240z-workshop-hero.jpg").slice(1);
+
+assert.ok(existsSync(join(root, routedDocument)), "root route resolves to the real HTML document");
+assert.ok(existsSync(join(root, routedImage)), "asset route resolves to a real project image");
 
 console.log("Brand-book HTML checks passed.");
