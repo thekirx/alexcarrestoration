@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Internal brand research and website translation guide for Alex Car Restoration.">
+  <title>Alex Car Restoration — Internal Brand Guide</title>
+  <style>
+    :root {
+      --black: #000000;
+      --ink: #161616;
+      --red: #d9141d;
+      --white: #ffffff;
+      --paper: #f4f4f2;
+      --gray: #e7e7e5;
+      --muted: #676767;
+      --line: #cececa;
+      --content: 1180px;
+      --sidebar: 250px;
+      --pad: clamp(24px, 5vw, 72px);
+      --display: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+      --body: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; width: 100%; }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:hover { color: var(--red); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: var(--white);
+      background: var(--red);
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell { min-height: 100vh; }
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 20;
+      width: var(--sidebar);
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px;
+      color: var(--white);
+      background: var(--black);
+      border-right: 1px solid #292929;
+    }
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .brand-lockup img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #333;
+    }
+    .brand-lockup strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 18px;
+      line-height: 1;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .brand-lockup small {
+      display: block;
+      margin-top: 6px;
+      color: #a8a8a8;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--red);
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .sidebar nav { margin-top: 48px; }
+    .sidebar nav ul {
+      display: grid;
+      gap: 2px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .sidebar nav a {
+      display: block;
+      padding: 7px 10px;
+      color: #959595;
+      border-left: 2px solid transparent;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: var(--white);
+      border-left-color: var(--red);
+      transform: translateX(3px);
+    }
+    .sidebar-meta {
+      margin-top: auto;
+      color: #757575;
+      font-size: 10px;
+      letter-spacing: .11em;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+    .sidebar-meta strong { color: var(--white); }
+
+    .mobile-bar { display: none; }
+    .mobile-nav { display: none; }
+    main { margin-left: var(--sidebar); }
+    section { scroll-margin-top: 24px; }
+
+    .hero {
+      position: relative;
+      min-height: min(820px, 92vh);
+      display: flex;
+      align-items: flex-end;
+      isolation: isolate;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--black);
+    }
+    .hero > img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      height: 100%;
+      object-fit: cover;
+      object-position: 54% center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.42) 58%, rgba(0,0,0,.08) 100%),
+        linear-gradient(0deg, rgba(0,0,0,.78) 0%, transparent 55%);
+    }
+    .hero-content {
+      width: min(920px, 100%);
+      padding: clamp(48px, 8vw, 112px) var(--pad);
+    }
+    .hero h1 {
+      max-width: 820px;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(52px, 8.5vw, 128px);
+      line-height: .85;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero-intro {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: #e2e2e2;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.45;
+    }
+    .hero-data {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin-top: 34px;
+      color: #bdbdbd;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .hero-data span::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: 0 9px 2px 0;
+      background: var(--red);
+    }
+
+    .section {
+      padding: clamp(72px, 10vw, 148px) var(--pad);
+      border-bottom: 1px solid var(--line);
+    }
+    .section-inner { max-width: var(--content); margin: 0 auto; }
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) minmax(280px, 2.3fr);
+      gap: clamp(24px, 5vw, 76px);
+      align-items: start;
+      margin-bottom: clamp(44px, 7vw, 86px);
+    }
+    .section-number {
+      color: var(--red);
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+    }
+    h2, h3, h4 {
+      margin-top: 0;
+      font-family: var(--display);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: clamp(42px, 6.8vw, 92px);
+      letter-spacing: -.04em;
+    }
+    h3 { font-size: clamp(24px, 3vw, 38px); letter-spacing: -.02em; }
+    h4 { margin-bottom: 10px; font-size: 17px; letter-spacing: .02em; }
+    .lede {
+      max-width: 750px;
+      margin: 0;
+      color: #444;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.55;
+    }
+    .kicker {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .fine-print { color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+    .summary-item { padding: 30px 26px; border-right: 1px solid var(--line); }
+    .summary-item:last-child { border-right: 0; }
+    .summary-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: var(--display);
+      font-size: 28px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .summary-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .manifesto {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 64px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .manifesto > div { padding: clamp(28px, 5vw, 58px); background: var(--white); }
+    .manifesto blockquote {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -.025em;
+      text-transform: uppercase;
+    }
+    .manifesto ul { margin: 0; padding-left: 18px; }
+
+    .identity-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(36px, 6vw, 86px);
+      align-items: center;
+    }
+    .logo-stage {
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      padding: 60px;
+      background: var(--black);
+    }
+    .logo-stage img { width: min(320px, 100%); border-radius: 50%; }
+    .identity-copy p { max-width: 640px; }
+    .rule-list { margin: 32px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .rule-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .rule-list b { color: var(--red); }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 72px;
+      border: 1px solid var(--line);
+    }
+    .swatch { min-height: 240px; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+    .swatch.dark { color: var(--white); }
+    .swatch strong { font-family: var(--display); font-size: 18px; text-transform: uppercase; }
+    .swatch span { font-size: 12px; opacity: .72; }
+
+    .type-specimen {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 72px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .type-specimen > div { min-height: 350px; padding: clamp(28px, 5vw, 56px); background: var(--white); }
+    .display-sample {
+      margin: 32px 0 0;
+      font-family: var(--display);
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: .88;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+    .body-sample { max-width: 480px; margin: 50px 0 0; font-size: 19px; line-height: 1.65; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      grid-template-rows: 360px 360px;
+      gap: 12px;
+    }
+    .photo-card { position: relative; overflow: hidden; background: #222; }
+    .photo-card:first-child { grid-row: 1 / span 2; }
+    .photo-card img { height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+    .photo-card:hover img { transform: scale(1.025); }
+    .photo-card figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 42px 24px 20px;
+      color: var(--white);
+      background: linear-gradient(transparent, rgba(0,0,0,.78));
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .photo-guidance {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+    .photo-guidance article { padding-top: 22px; border-top: 3px solid var(--ink); }
+    .photo-guidance p { color: var(--muted); font-size: 14px; }
+
+    .dark-section { color: var(--white); background: var(--black); border-color: #242424; }
+    .dark-section .lede { color: #b8b8b8; }
+    .dark-section .fine-print { color: #8f8f8f; }
+    .voice-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(30px, 7vw, 96px);
+    }
+    .voice-mode { padding-top: 24px; border-top: 1px solid #4a4a4a; }
+    .voice-mode p { color: #b8b8b8; }
+    .quote {
+      margin: 32px 0;
+      padding: 28px 0 28px 28px;
+      border-left: 4px solid var(--red);
+      font-family: var(--display);
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .voice-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+    .voice-tags span {
+      padding: 8px 12px;
+      color: #ddd;
+      border: 1px solid #383838;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .service-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+    .service-list li {
+      display: grid;
+      grid-template-columns: 72px minmax(220px, .9fr) 1.7fr auto;
+      gap: 28px;
+      align-items: baseline;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-list .num { color: var(--red); font-family: var(--display); font-size: 14px; }
+    .service-list strong { font-family: var(--display); font-size: 26px; text-transform: uppercase; }
+    .service-list p { margin: 0; color: var(--muted); }
+    .confidence {
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .confidence::before { content: "●"; margin-right: 7px; color: var(--red); }
+    .unknown-strip {
+      margin-top: 40px;
+      padding: 24px 28px;
+      color: #383838;
+      background: var(--gray);
+      border-left: 4px solid var(--muted);
+    }
+    .unknown-strip strong { font-family: var(--display); text-transform: uppercase; }
+
+    .proof-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+    }
+    .proof-image { min-height: 620px; }
+    .proof-image img { height: 100%; object-fit: cover; }
+    .proof-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 6vw, 72px); background: var(--white); }
+    .proof-stat { padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .proof-stat:first-of-type { border-top: 1px solid var(--line); }
+    .proof-stat strong { display: block; font-family: var(--display); font-size: clamp(36px, 5vw, 64px); line-height: 1; text-transform: uppercase; }
+    .proof-stat span { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; }
+
+    .site-map {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      counter-reset: map;
+    }
+    .site-map article { min-height: 270px; padding: clamp(28px, 4vw, 50px); background: var(--white); counter-increment: map; }
+    .site-map article::before {
+      content: "0" counter(map);
+      display: block;
+      margin-bottom: 46px;
+      color: var(--red);
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+    .site-map p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .web-principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .web-principles article { padding-top: 22px; border-top: 3px solid var(--ink); }
+
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #333; }
+    .do-dont > div { padding: clamp(32px, 5vw, 62px); background: #0d0d0d; }
+    .do-dont h3 { display: flex; align-items: center; gap: 12px; }
+    .do-dont h3::before { content: ""; width: 9px; height: 9px; background: var(--red); }
+    .do-dont ul { margin: 0; padding-left: 20px; color: #bbb; }
+    .do-dont li { margin: 12px 0; }
+
+    .questions { columns: 2; column-gap: 64px; margin: 0; padding: 0; list-style: none; counter-reset: question; }
+    .questions li {
+      break-inside: avoid;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      counter-increment: question;
+    }
+    .questions li::before { content: counter(question, decimal-leading-zero); color: var(--red); font-family: var(--display); font-size: 12px; }
+
+    .source-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .source-list li { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .source-list a { font-weight: 700; text-decoration: none; }
+    .source-list span { color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+
+    .footer {
+      padding: 70px var(--pad);
+      color: #8e8e8e;
+      background: var(--black);
+    }
+    .footer-inner { max-width: var(--content); margin: 0 auto; display: flex; justify-content: space-between; gap: 36px; }
+    .footer strong { color: var(--white); font-family: var(--display); font-size: 20px; text-transform: uppercase; }
+    .footer p { max-width: 640px; margin: 0; font-size: 12px; }
+
+    @media (max-width: 980px) {
+      :root { --sidebar: 0px; }
+      html { scroll-padding-top: 74px; }
+      .sidebar { display: none; }
+      .mobile-bar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 66px;
+        padding: 10px 18px;
+        color: var(--white);
+        background: rgba(0,0,0,.96);
+        border-bottom: 1px solid #292929;
+      }
+      .mobile-bar .brand-lockup img { width: 42px; height: 42px; }
+      .mobile-bar .brand-lockup strong { font-size: 14px; }
+      .mobile-bar button {
+        min-width: 44px;
+        min-height: 44px;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid #444;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .mobile-nav {
+        position: fixed;
+        inset: 66px 0 auto;
+        z-index: 29;
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 14px;
+        background: var(--black);
+        border-bottom: 1px solid #333;
+      }
+      .mobile-nav.open { display: grid; }
+      .mobile-nav a { padding: 13px; color: #ccc; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+      main { margin-left: 0; }
+      .hero { min-height: 720px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .summary-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .summary-item:last-child { border-bottom: 0; }
+      .identity-layout, .proof-layout { grid-template-columns: 1fr; }
+      .logo-stage { min-height: 420px; }
+      .swatches { grid-template-columns: repeat(2, 1fr); }
+      .swatch:last-child { grid-column: 1 / -1; min-height: 150px; }
+      .photo-grid { grid-template-rows: 300px 300px; }
+      .service-list li { grid-template-columns: 48px 1fr auto; }
+      .service-list p { grid-column: 2 / -1; }
+      .proof-image { min-height: 520px; }
+    }
+
+    @media (max-width: 680px) {
+      body { font-size: 15px; }
+      .hero { min-height: calc(100svh - 66px); }
+      .hero > img { object-position: 60% center; }
+      .hero-content { padding-bottom: 54px; }
+      .hero h1 { font-size: clamp(48px, 17vw, 78px); }
+      .section-header { grid-template-columns: 1fr; gap: 18px; }
+      .manifesto, .type-specimen, .voice-columns, .site-map, .do-dont { grid-template-columns: 1fr; }
+      .photo-grid { display: grid; grid-template-columns: 1fr; grid-template-rows: repeat(3, 350px); }
+      .photo-card:first-child { grid-row: auto; }
+      .photo-guidance, .web-principles { grid-template-columns: 1fr; }
+      .swatches { grid-template-columns: 1fr; }
+      .swatch:last-child { grid-column: auto; }
+      .service-list li { grid-template-columns: 34px 1fr; gap: 14px; }
+      .service-list strong { font-size: 22px; }
+      .service-list p, .service-list .confidence { grid-column: 2; }
+      .questions { columns: 1; }
+      .source-list li { grid-template-columns: 1fr; gap: 4px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media print {
+      .sidebar, .mobile-bar, .mobile-nav { display: none !important; }
+      main { margin: 0; }
+      .hero { min-height: 690px; break-after: page; }
+      .section { break-inside: avoid; }
+      a { text-decoration: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+
+    /* Refined presentation layer */
+    :root {
+      --paper: #ffffff;
+      --gray: #ededeb;
+      --line: #d8d8d4;
+      --muted: #5f5f5a;
+      --content: 1240px;
+      --sidebar: 224px;
+      --pad: clamp(28px, 5.2vw, 84px);
+    }
+    body { background: var(--white); line-height: 1.58; }
+    .sidebar { padding: 30px 22px 26px; border-right-color: #1d1d1d; }
+    .sidebar .brand-lockup { gap: 11px; }
+    .sidebar .brand-lockup img { width: 48px; height: 48px; border: 0; }
+    .sidebar .brand-lockup strong { font-size: 15px; letter-spacing: .055em; }
+    .sidebar .brand-lockup small { margin-top: 5px; font-size: 8px; letter-spacing: .2em; }
+    .sidebar nav { margin-top: 44px; }
+    .sidebar nav ul { gap: 0; }
+    .sidebar nav a {
+      padding: 7px 0 7px 14px;
+      color: #8b8b8b;
+      font-size: 10px;
+      letter-spacing: .12em;
+      transform: none;
+    }
+    .sidebar nav a:hover, .sidebar nav a.active { color: var(--white); transform: none; }
+    .sidebar-meta { font-size: 8px; letter-spacing: .15em; line-height: 1.7; }
+
+    .hero { min-height: min(860px, 96vh); }
+    .hero > img { object-position: 58% center; }
+    .hero::after {
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.78) 31%, rgba(0,0,0,.25) 61%, rgba(0,0,0,.03) 100%),
+        linear-gradient(0deg, rgba(0,0,0,.66) 0%, transparent 46%);
+    }
+    .hero-content { width: min(780px, 100%); padding: clamp(64px, 8vw, 112px) var(--pad) clamp(58px, 8vw, 94px); }
+    .hero h1 {
+      max-width: 690px;
+      font-size: clamp(64px, 8vw, 116px);
+      line-height: .82;
+      letter-spacing: -.052em;
+    }
+    .hero-intro { max-width: 570px; margin-top: 26px; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.5; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 31px; }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .button svg, .project-copy a svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; stroke-linejoin: miter; }
+    .button-primary { color: var(--white); background: var(--red); border-color: var(--red); }
+    .button-primary:hover { color: var(--white); background: #b80f17; border-color: #b80f17; }
+    .button-secondary { color: var(--white); background: rgba(0,0,0,.22); border-color: rgba(255,255,255,.52); }
+    .button-secondary:hover { color: var(--black); background: var(--white); border-color: var(--white); }
+    .hero-data { gap: 10px 24px; margin-top: 28px; font-size: 9px; letter-spacing: .15em; }
+    .hero-data span::before { width: 4px; height: 4px; margin-right: 8px; }
+
+    .section { padding: clamp(88px, 10vw, 152px) var(--pad); }
+    .section-header { grid-template-columns: 148px minmax(320px, 1fr); gap: clamp(32px, 6vw, 92px); margin-bottom: clamp(52px, 7vw, 94px); }
+    .section-number { font-size: 10px; letter-spacing: .18em; }
+    h2 { max-width: 900px; margin-bottom: 24px; font-size: clamp(48px, 6vw, 82px); line-height: .92; letter-spacing: -.047em; }
+    h3 { line-height: .95; }
+    .lede { max-width: 760px; color: #3f3f3b; font-size: clamp(18px, 1.75vw, 22px); line-height: 1.55; }
+    .kicker, .project-index { font-size: 9px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+    .summary-grid { border-top-color: var(--black); border-bottom-color: var(--black); }
+    .summary-item { min-height: 190px; padding: 34px 30px; }
+    .summary-item strong { font-size: 30px; letter-spacing: -.02em; }
+    .manifesto { margin-top: 74px; }
+    .manifesto > div { padding: clamp(36px, 5vw, 68px); }
+    .manifesto blockquote { font-size: clamp(34px, 3.8vw, 52px); }
+
+    .identity-layout { grid-template-columns: minmax(350px, .82fr) minmax(390px, 1.18fr); }
+    .logo-stage { min-height: 600px; padding: 76px; }
+    .logo-stage img { width: min(350px, 100%); }
+    .rule-list li { padding: 19px 0; }
+    .swatches { margin-top: 82px; border-color: var(--black); }
+    .swatch { min-height: 270px; padding: 24px; }
+    .type-specimen { margin-top: 82px; }
+
+    .project-showcase { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
+    .project-feature { position: relative; overflow: hidden; background: var(--paper); border: 1px solid var(--line); }
+    .project-feature figure { margin: 0; overflow: hidden; background: var(--black); }
+    .project-feature img { height: 100%; object-fit: cover; }
+    .project-feature-lead { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(330px, .75fr); min-height: 620px; }
+    .project-feature-lead figure { min-height: 620px; }
+    .project-feature-lead img { object-position: 48% center; }
+    .project-feature-compact { grid-column: span 6; display: grid; grid-template-rows: minmax(390px, 1fr) auto; }
+    .project-feature-compact figure { min-height: 390px; }
+    .project-feature-compact:first-of-type img { object-position: center; }
+    .project-feature-dark { color: var(--white); background: var(--black); border-color: var(--black); }
+    .project-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: clamp(30px, 4vw, 56px); }
+    .project-index { display: block; margin-bottom: 22px; color: var(--red); }
+    .project-copy h3 { margin: 0 0 20px; font-size: clamp(32px, 4vw, 54px); letter-spacing: -.035em; }
+    .project-copy p { max-width: 500px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .project-feature-dark .project-copy p { color: #b8b8b8; }
+    .project-copy a { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; font-size: 10px; font-weight: 700; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; }
+    .build-sequence { display: grid; grid-template-columns: 1.05fr 1fr 1fr; gap: 12px; margin-top: 80px; }
+    .build-sequence-copy { display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 36px 32px 0; border-top: 4px solid var(--black); }
+    .build-sequence-copy h3 { margin: 20px 0 22px; font-size: clamp(30px, 3.4vw, 48px); }
+    .build-sequence-copy p { margin: 0; color: var(--muted); font-size: 14px; }
+    .build-sequence figure { position: relative; min-height: 470px; margin: 0; overflow: hidden; background: var(--black); }
+    .build-sequence img { height: 100%; object-fit: cover; }
+    .build-sequence figcaption, .proof-image figcaption { position: absolute; inset: auto 0 0; padding: 36px 20px 17px; color: var(--white); background: linear-gradient(transparent, rgba(0,0,0,.78)); font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .photo-guidance { margin-top: 64px; }
+    .photo-guidance article { padding-top: 26px; }
+
+    .voice-mode { padding-top: 30px; }
+    .quote { font-size: clamp(28px, 3vw, 40px); }
+    .voice-tags span { border-color: #333; }
+
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .service-card { min-height: 300px; display: grid; grid-template-columns: 48px 1fr; grid-template-rows: 1fr auto; gap: 18px 22px; padding: clamp(30px, 4vw, 50px); background: var(--white); }
+    .service-card-primary { grid-column: 1 / -1; min-height: 292px; grid-template-columns: 48px minmax(0, 1fr) auto; grid-template-rows: auto; align-items: start; color: var(--white); background: var(--black); }
+    .service-card .num { color: var(--red); font-family: var(--display); font-size: 11px; letter-spacing: .14em; }
+    .service-card h3 { margin: 0 0 22px; font-size: clamp(30px, 3.6vw, 48px); letter-spacing: -.03em; }
+    .service-card p { max-width: 500px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .service-card-primary p { color: #bcbcbc; }
+    .service-card .confidence { grid-column: 2; align-self: end; color: #4c4c48; }
+    .service-card-primary .confidence { grid-column: 3; align-self: start; }
+    .service-card-primary .confidence { color: #b5b5b5; }
+    .unknown-strip { margin-top: 24px; padding: 26px 30px; background: #f1f1ef; border-left-width: 3px; font-size: 13px; }
+
+    .proof-layout { grid-template-columns: minmax(0, 1.2fr) minmax(390px, .8fr); gap: 0; background: var(--black); }
+    .proof-media { display: grid; grid-template-columns: 1.4fr .8fr; gap: 8px; padding: 8px; }
+    .proof-image { position: relative; min-height: 680px; margin: 0; overflow: hidden; }
+    .proof-image-secondary { min-height: 680px; }
+    .proof-image img { height: 100%; object-fit: cover; }
+    .proof-image-secondary img { object-position: 45% center; }
+    .proof-copy { padding: clamp(42px, 5vw, 76px); color: var(--white); background: var(--black); }
+    .proof-stat { padding: 28px 0; border-color: #333; }
+    .proof-stat:first-of-type { border-color: #333; }
+    .proof-stat strong { font-size: clamp(44px, 5vw, 70px); }
+    .proof-stat span { max-width: 390px; color: #a8a8a8; line-height: 1.6; }
+
+    .site-map article { min-height: 290px; }
+    .web-principles { margin-top: 60px; }
+    .contact-cta { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-top: 80px; padding: clamp(42px, 6vw, 74px); color: var(--white); background: var(--black); border-top: 4px solid var(--red); }
+    .contact-cta h3 { margin: 20px 0; font-size: clamp(38px, 5vw, 66px); letter-spacing: -.04em; }
+    .contact-cta p { max-width: 620px; margin: 0; color: #aaa; }
+    .contact-cta .button { align-self: center; white-space: nowrap; }
+
+    .do-dont { gap: 8px; background: var(--black); }
+    .do-dont > div { padding: clamp(38px, 5vw, 68px); }
+    .footer { padding-block: 58px; }
+
+    @media (max-width: 1120px) {
+      .project-feature-lead { grid-template-columns: 1.4fr .8fr; }
+      .build-sequence { grid-template-columns: 1fr 1fr; }
+      .build-sequence-copy { grid-column: 1 / -1; padding-right: 0; }
+      .proof-layout { grid-template-columns: 1fr; }
+      .proof-image, .proof-image-secondary { min-height: 560px; }
+    }
+    @media (max-width: 980px) {
+      :root { --sidebar: 0px; }
+      .mobile-bar { height: 70px; padding-inline: 20px; }
+      .mobile-nav { inset-block-start: 70px; }
+      .hero { min-height: calc(100svh - 70px); }
+      .hero-content { width: min(760px, 100%); }
+      .section-header { grid-template-columns: 120px minmax(280px, 1fr); }
+      .identity-layout { grid-template-columns: 1fr; }
+      .project-feature-lead { grid-template-columns: 1fr; }
+      .project-feature-lead figure { min-height: 560px; }
+      .project-feature-compact { grid-column: 1 / -1; grid-template-columns: 1.1fr .9fr; grid-template-rows: none; }
+      .project-feature-compact figure { min-height: 420px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card-primary { grid-column: auto; }
+      .contact-cta { grid-template-columns: 1fr; align-items: start; }
+      .contact-cta .button { justify-self: start; }
+    }
+    @media (max-width: 680px) {
+      .mobile-bar { height: 64px; padding-inline: 16px; }
+      .mobile-nav { inset-block-start: 64px; padding: 12px 16px 20px; }
+      .mobile-nav a { padding: 12px 8px; font-size: 9px; letter-spacing: .11em; }
+      .mobile-bar .brand-lockup img { width: 38px; height: 38px; }
+      .mobile-bar button { min-width: 42px; min-height: 42px; }
+      .hero { min-height: calc(100svh - 64px); }
+      .hero > img { object-position: 57% center; }
+      .hero::after { background: linear-gradient(0deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.48) 58%, rgba(0,0,0,.12) 100%); }
+      .hero-content { padding: 72px 22px 38px; }
+      .hero h1 { max-width: 350px; font-size: clamp(56px, 17vw, 76px); line-height: .84; }
+      .hero-intro { max-width: 330px; margin-top: 22px; font-size: 16px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; width: min(100%, 330px); margin-top: 26px; }
+      .button { width: 100%; min-height: 48px; padding-inline: 17px; }
+      .hero-data { gap: 8px 14px; margin-top: 23px; }
+      .section { padding: 78px 22px; }
+      .section-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 46px; }
+      h2 { font-size: clamp(43px, 14vw, 62px); line-height: .93; }
+      .lede { font-size: 17px; }
+      .summary-item { min-height: auto; padding: 28px 2px; }
+      .manifesto { margin-top: 52px; }
+      .manifesto > div { padding: 34px 26px; }
+      .logo-stage { min-height: 380px; padding: 52px; }
+      .swatch { min-height: 180px; }
+      .project-feature-lead, .project-feature-compact { display: grid; grid-template-columns: 1fr; min-height: 0; }
+      .project-feature-lead figure, .project-feature-compact figure { min-height: 300px; }
+      .project-feature-lead img { object-position: 48% center; }
+      .project-copy { padding: 30px 24px 34px; }
+      .project-copy h3 { font-size: 34px; }
+      .build-sequence { grid-template-columns: 1fr; margin-top: 56px; }
+      .build-sequence-copy { grid-column: auto; padding: 30px 0 14px; }
+      .build-sequence figure { min-height: 410px; }
+      .photo-guidance { margin-top: 48px; }
+      .service-card { min-height: 260px; grid-template-columns: 34px 1fr; padding: 30px 24px; }
+      .service-card-primary { grid-template-columns: 34px 1fr; }
+      .service-card-primary .confidence { grid-column: 2; }
+      .service-card h3 { font-size: 31px; }
+      .proof-media { grid-template-columns: 1fr; padding: 6px; }
+      .proof-image, .proof-image-secondary { min-height: 390px; }
+      .proof-copy { padding: 42px 26px; }
+      .contact-cta { margin-top: 56px; padding: 38px 26px; }
+      .contact-cta h3 { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand-lockup" href="#overview">
+        <img src="assets/alex-circular-mark.jpg" alt="Alex Car Restoration circular mark">
+        <span><strong>Alex Car</strong><small>Internal Brand Guide</small></span>
+      </a>
+      <nav aria-label="Brand guide sections">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#brand">Brand identity</a></li>
+          <li><a href="#visual-system">Visual system</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#voice">Voice & copy</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#proof">Credibility</a></li>
+          <li><a href="#website">Website translation</a></li>
+          <li><a href="#guardrails">Guardrails</a></li>
+          <li><a href="#unknowns">Open questions</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-meta"><strong>Research date</strong><br>August 28, 2026<br><br>Public Facebook evidence only</div>
+    </aside>
+
+    <div class="mobile-bar">
+      <a class="brand-lockup" href="#overview">
+        <img src="assets/alex-circular-mark.jpg" alt="Alex Car Restoration circular mark">
+        <span><strong>Alex Car</strong></span>
+      </a>
+      <button type="button" aria-label="Open section menu" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile brand guide sections">
+      <a href="#overview">Overview</a><a href="#brand">Identity</a><a href="#visual-system">Visual system</a>
+      <a href="#photography">Photography</a><a href="#voice">Voice</a><a href="#services">Services</a>
+      <a href="#proof">Credibility</a><a href="#website">Website</a><a href="#guardrails">Guardrails</a>
+      <a href="#unknowns">Questions</a><a href="#sources">Sources</a>
+    </nav>
+
+    <main id="content">
+      <section class="hero" id="overview">
+        <img src="assets/datsun-240z-workshop-hero.jpg" alt="Finished white Datsun 240Z in the Alex Car Restoration workshop">
+        <div class="hero-content">
+          <h1>Classic.<br>Reborn<span>.</span></h1>
+          <p class="hero-intro">A visual translation of Alex Car Restoration’s public identity: workshop-authentic, model-specific, image-led, and backed by visible proof.</p>
+          <div class="hero-actions">
+            <a href="https://tinyurl.com/alexcarbooking" class="button button-primary" target="_blank" rel="noreferrer">Book a restoration <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+            <a href="#photography" class="button button-secondary">View confirmed projects <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+          </div>
+          <div class="hero-data"><span>Automotive service</span><span>Quezon City</span><span>Research confidence: high</span></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="summary-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">00 / Summary</span></div>
+            <div>
+              <h2 id="summary-title">Proof is the brand.</h2>
+              <p class="lede">The identity does not depend on elaborate graphics. It repeats a compact system: recognizable classics, clean shop photography, exact model naming, transformation language, a small watermark, and public evidence of long-term enthusiast credibility.</p>
+            </div>
+          </header>
+          <div class="summary-grid">
+            <article class="summary-item"><strong>Image-led</strong><p>Finished vehicles, true details, workshop context, and compact evidence sets do the communication.</p></article>
+            <article class="summary-item"><strong>Quietly premium</strong><p>Precision and finish without generic black-and-gold luxury or exaggerated motorsport styling.</p></article>
+            <article class="summary-item"><strong>Source-bound</strong><p>Every public claim, service, image, and project credit must remain traceable to Alex’s own content.</p></article>
+          </div>
+          <div class="manifesto">
+            <div><span class="kicker">The website should feel</span><blockquote>Proven. Precise. Enthusiast-led. Award-backed.</blockquote></div>
+            <div>
+              <span class="kicker">The governing idea</span>
+              <p>Let Alex Car Restoration’s own vehicles and workshop become the visual system. Present each restoration as evidence, not decoration.</p>
+              <ul><li>One strong hero, then specific proof.</li><li>Exact vehicle. Exact work. Tangible outcome.</li><li>Black and white structure; red as a signal.</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="brand" aria-labelledby="brand-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">01 / Brand identity</span></div>
+            <div><h2 id="brand-title">Existing marks, unchanged.</h2><p class="lede">Two recognizable assets anchor the system. Treat both as finished artwork—not typography to be recreated.</p></div>
+          </header>
+          <div class="identity-layout">
+            <div class="logo-stage"><img src="assets/alex-circular-mark.jpg" alt="Black circular Alex profile logo with white lettering and a small red accent"></div>
+            <div class="identity-copy">
+              <span class="kicker">Primary circular mark</span>
+              <h3>Compact social recognition</h3>
+              <p>Black circular field, thick white perimeter ring, and tightly composed white <strong>AleX</strong> lettering with a small red wedge on the final X. Best used for the favicon, avatar continuity, and compact mobile placement.</p>
+              <span class="kicker">Horizontal mark</span>
+              <h3>AleX Restoration</h3>
+              <p>The horizontal lockup—bold AleX at left, smaller widely tracked Restoration at right—is the recommended website signature once a clean transparent or vector master is supplied.</p>
+              <ul class="rule-list">
+                <li><b>01</b><span>Do not retype, trace, redraw, smooth, or “modernize” either logo.</span></li>
+                <li><b>02</b><span>Use the horizontal mark in navigation and on photography when its existing watermark does not duplicate it.</span></li>
+                <li><b>03</b><span>Request production masters before launch; the social image shown here is for research presentation only.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="visual-system" aria-labelledby="visual-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">02 / Visual system</span></div>
+            <div><h2 id="visual-title">Black. White. One red signal.</h2><p class="lede">The defensible palette is intentionally small. Vehicle paint belongs to each project; it does not become interface color.</p></div>
+          </header>
+          <div class="swatches" aria-label="Alex Car Restoration color palette">
+            <div class="swatch dark" style="background:#000000"><strong>Alex Black</strong><span>#000000 · Primary</span></div>
+            <div class="swatch dark" style="background:#161616"><strong>Near Black</strong><span>#161616 · Web support</span></div>
+            <div class="swatch dark" style="background:#d9141d"><strong>Signal Red</strong><span>#D9141D approx. · Accent</span></div>
+            <div class="swatch" style="background:#e7e7e5"><strong>Workshop Gray</strong><span>#E7E7E5 · Support</span></div>
+            <div class="swatch" style="background:#ffffff"><strong>Restoration White</strong><span>#FFFFFF · Primary</span></div>
+          </div>
+          <p class="fine-print">Signal Red is sampled approximately from the compressed profile mark. Confirm official values before production.</p>
+          <div class="type-specimen">
+            <div>
+              <span class="kicker">Display / substitute only</span>
+              <div class="display-sample">1968<br>280SL</div>
+              <p class="fine-print">Roboto Condensed 700 is the recommended production substitute. This preview falls back to available condensed system faces.</p>
+            </div>
+            <div>
+              <span class="kicker">Body / neutral system sans</span>
+              <p class="body-sample">A timeless 1968 Mercedes-Benz 280SL, carefully restored through precise bodywork, paint, detailing, and protection.</p>
+              <p class="fine-print">Arial, Helvetica, or a neutral system sans. Avoid fashion serifs, techno faces, and exaggerated racing italics.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="photography" aria-labelledby="photo-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">03 / Photography</span></div>
+            <div><h2 id="photo-title">The workshop is the studio.</h2><p class="lede">Keep the vehicles polished and the context honest. Lifts, shutters, concrete, tools, other classics, trophy cabinets, and event crowds are evidence of real work.</p></div>
+          </header>
+          <div class="project-showcase">
+            <article class="project-feature project-feature-lead" data-project="Datsun 240Z">
+              <figure><img src="assets/datsun-240z-workshop-hero.jpg" alt="Finished white Datsun 240Z in the Alex Car Restoration workshop"></figure>
+              <div class="project-copy"><span class="project-index">01 / Confirmed restoration</span><h3>Datsun 240Z</h3><p>Full frame-off restoration and ceramic coating, presented inside the working Alex shop. The public project caption also records a Best of Show outcome.</p><a href="https://www.facebook.com/permalink.php?story_fbid=1287474380092620&amp;id=100064902093722" target="_blank" rel="noreferrer">View source project <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a></div>
+            </article>
+            <article class="project-feature project-feature-compact" data-project="Mercedes-Benz 280SL">
+              <figure><img src="assets/mercedes-cover.jpg" alt="Three restored classic Mercedes photographed front-on in the workshop"></figure>
+              <div class="project-copy"><span class="project-index">02 / Confirmed project pattern</span><h3>Mercedes-Benz 280SL</h3><p>Frame-on restoration with bodywork, oven-baked painting, and interior/exterior detailing.</p></div>
+            </article>
+            <article class="project-feature project-feature-compact project-feature-dark" data-project="Vespa 50S">
+              <figure><img src="assets/vespa-50s-finished.jpg" alt="Finished burgundy Vespa 50S displayed beside a trophy cabinet"></figure>
+              <div class="project-copy"><span class="project-index">03 / Confirmed frame-off</span><h3>Vespa 50S</h3><p>A finished restoration presented with trophy-wall context and a strong sequence of material details.</p></div>
+            </article>
+          </div>
+          <div class="build-sequence" aria-label="Vespa 50S finished build detail sequence">
+            <div class="build-sequence-copy"><span class="project-index">Build imagery treatment</span><h3>Finished vehicle.<br>Craft detail.<br>Material proof.</h3><p>No artificial before/after is shown. Until a matched pair is verified, a truthful build sequence is the more credible treatment.</p></div>
+            <figure><img src="assets/vespa-leather-grip-detail.jpg" alt="Close view of the Vespa leather grip, stitching, and metal control"><figcaption>Leather stitching and restored control</figcaption></figure>
+            <figure><img src="assets/vespa-spare-wheel-detail.jpg" alt="Vespa spare wheel and restored burgundy bodywork in close detail"><figcaption>Spare-wheel presentation and paint finish</figcaption></figure>
+          </div>
+          <div class="photo-guidance">
+            <article><h4>Hero</h4><p>Use a wide finished vehicle in the Alex shop, with calm symmetry or a three-quarter stance and clear reflections.</p></article>
+            <article><h4>Evidence set</h4><p>Follow with angles, cabin, engine, and material details from the same verified project.</p></article>
+            <article><h4>Process</h4><p>Reserve the label for genuine work imagery: bodywork, preparation, paint, reassembly, or tools in use.</p></article>
+          </div>
+          <p class="fine-print">All photography in this presentation comes from Alex Car Restoration’s public Facebook content. Existing watermarks are preserved.</p>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="voice" aria-labelledby="voice-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">04 / Voice & copy</span></div>
+            <div><h2 id="voice-title">Exact work. Tangible outcome.</h2><p class="lede">The public voice has two useful modes: polished restoration storytelling and direct commercial/service posts.</p></div>
+          </header>
+          <div class="voice-columns">
+            <article class="voice-mode">
+              <span class="kicker">Mode 01</span><h3>Restoration storytelling</h3>
+              <p>Model-specific English focused on transformation, precision, patience, paint, protection, craftsmanship, heritage, and rebirth.</p>
+              <div class="quote">Name the vehicle.<br>Name the work.<br>Show the proof.</div>
+              <p class="fine-print">Recommended structure: year/model → scope → key work → finished outcome or award → direct CTA.</p>
+            </article>
+            <article class="voice-mode">
+              <span class="kicker">Mode 02</span><h3>Commercial & service</h3>
+              <p>Short, direct English with a message, phone, or booking CTA. Location, financing, and hashtags may follow when relevant.</p>
+              <div class="quote">Discuss your project.<br>Book your restoration.</div>
+              <p class="fine-print">Use Filipino/Taglish selectively for community warmth or direct local replies, not as a forced brand device.</p>
+            </article>
+          </div>
+          <div class="voice-tags"><span>Precise</span><span>Confident</span><span>Enthusiast-led</span><span>Transformation-focused</span><span>Grateful</span><span>Direct</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="services" aria-labelledby="services-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">05 / Verified services</span></div>
+            <div><h2 id="services-title">Lead with what is proven.</h2><p class="lede">The website hierarchy should stay anchored to Alex’s public service line and confirmed project captions.</p></div>
+          </header>
+          <div class="service-grid">
+            <article class="service-card service-card-primary"><span class="num">01</span><div><h3>Full Restoration</h3><p>Frame-off and frame-on work confirmed across classic cars and motorcycles.</p></div><span class="confidence">High confidence</span></article>
+            <article class="service-card"><span class="num">02</span><div><h3>Body & Paint</h3><p>Bodywork and oven-baked painting named in a confirmed Mercedes 280SL project.</p></div><span class="confidence">High confidence</span></article>
+            <article class="service-card"><span class="num">03</span><div><h3>Detailing</h3><p>Interior/exterior detailing and paint correction recur across profile and project content.</p></div><span class="confidence">High confidence</span></article>
+            <article class="service-card"><span class="num">04</span><div><h3>Ceramic Coating</h3><p>Publicly listed and repeatedly shown, including the restored Datsun 240Z.</p></div><span class="confidence">High confidence</span></article>
+            <article class="service-card"><span class="num">05</span><div><h3>PPF Removal</h3><p>Verified in current GT3 RS service content; nested under detailing and protection.</p></div><span class="confidence">Medium–high</span></article>
+          </div>
+          <div class="unknown-strip"><strong>Keep out until verified / UNKNOWN:</strong> mechanical restoration as a standalone service, upholstery, custom fabrication, parts sourcing, collision repair, storage, transport, and consignment.</div>
+        </div>
+      </section>
+
+      <section class="section" id="proof" aria-labelledby="proof-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">06 / Credibility</span></div>
+            <div><h2 id="proof-title">Show the evidence. Attribute the claim.</h2><p class="lede">Awards and community scale are central to the existing public identity. Use them carefully and keep time-sensitive or self-reported context visible.</p></div>
+          </header>
+          <div class="proof-layout">
+            <div class="proof-media">
+              <figure class="proof-image proof-image-main"><img src="assets/award-trophy-lift.jpg" alt="Award presentation with a trophy raised above a classic vehicle"><figcaption>Documented show-floor presence</figcaption></figure>
+              <figure class="proof-image proof-image-secondary"><img src="assets/award-team.jpg" alt="Alex Car Restoration team and guests gathered with an award at a car show"><figcaption>Team and event context</figcaption></figure>
+            </div>
+            <div class="proof-copy">
+              <span class="kicker">Observed public proof</span>
+              <div class="proof-stat"><strong>300+</strong><span>“300+ Car Show Awards since 1992” — self-reported in the Facebook page bio.</span></div>
+              <div class="proof-stat"><strong>88K</strong><span>88K Facebook followers at research date (August 28, 2026); inherently time-sensitive.</span></div>
+              <div class="proof-stat"><strong>Best of Show</strong><span>Datsun 240Z outcome claimed in the confirmed frame-off restoration post.</span></div>
+              <p class="fine-print">Observed page claims, not independently audited facts. Production copy should preserve attribution until supporting records are assembled.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="website" aria-labelledby="website-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">07 / Website translation</span></div>
+            <div><h2 id="website-title">A controlled sequence of proof.</h2><p class="lede">The strongest concept is an editorial restoration portfolio: one decisive opening image, named work, compact service language, and project sequences that let the evidence accumulate.</p></div>
+          </header>
+          <div class="site-map">
+            <article><h3>Hero</h3><p>One Alex-owned workshop image, a specific value statement, verified service scope, location, and a direct booking or message CTA.</p></article>
+            <article><h3>Core services</h3><p>Full Restoration, Body & Paint, Detailing, and Ceramic Coating. Evidence-linked rather than icon-led.</p></article>
+            <article><h3>Featured projects</h3><p>Datsun 240Z, Mercedes 280SL, and Vespa 50S presented by model, scope, detail, and outcome.</p></article>
+            <article><h3>Craft & process</h3><p>Real work stages, material details, and hands or tools only where the source genuinely proves them.</p></article>
+            <article><h3>Awards & reputation</h3><p>Attributed public claims paired with trophy, team, and show-floor photography.</p></article>
+            <article><h3>Contact</h3><p>Booking route, primary message channel, address, hours, and the information a prospective client should send.</p></article>
+          </div>
+          <div class="web-principles">
+            <article><h4>Density</h4><p>Image-heavy but controlled. Prefer one hero and a coherent project sequence over a mosaic of unrelated cars.</p></article>
+            <article><h4>Motion</h4><p>Slow reveals and restrained transitions. No rev effects, tire smoke, speedometers, or constant parallax.</p></article>
+            <article><h4>Optional sales</h4><p>Add “Selected Classics for Sale” only if Alex confirms sales as a lasting pillar. Keep it separate from restoration credits.</p></article>
+          </div>
+          <div class="contact-cta">
+            <div><span class="project-index">Recommended primary conversion</span><h3>Bring the vehicle.<br>Start with the conversation.</h3><p>Use Alex’s existing public booking route and the same directness found in current service posts.</p></div>
+            <a href="https://tinyurl.com/alexcarbooking" class="button button-primary" target="_blank" rel="noreferrer">Book a restoration <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="guardrails" aria-labelledby="guardrails-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">08 / Guardrails</span></div>
+            <div><h2 id="guardrails-title">Protect what is already distinctive.</h2><p class="lede">The concept becomes stronger by refusing unsupported luxury clichés, invented capabilities, and substitute imagery.</p></div>
+          </header>
+          <div class="do-dont">
+            <div><h3>Do</h3><ul><li>Use Alex’s actual marks and public photography.</li><li>Lead with confirmed restoration projects.</li><li>Keep workshop, trophy, and event context visible.</li><li>Use hero, angle, detail, process, and result as evidence.</li><li>Attribute awards, statistics, and time-sensitive claims.</li><li>Keep red small and purposeful.</li></ul></div>
+            <div><h3>Don’t</h3><ul><li>Generate or source substitute vehicle and shop imagery.</li><li>Redraw or modernize the logo.</li><li>Use black-and-gold luxury, heritage-serif, carbon-fiber, or neon-dashboard clichés.</li><li>Turn vehicle paint colors into brand colors.</li><li>Call beauty shots “process” or sales cars “Alex restorations” without proof.</li><li>Manufacture a before/after comparison from mismatched images.</li></ul></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="unknowns" aria-labelledby="unknowns-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">09 / Open questions</span></div>
+            <div><h2 id="unknowns-title">Resolve before production.</h2><p class="lede">These unknowns are deliberately visible. They prevent the concept from hardening guesses into brand facts.</p></div>
+          </header>
+          <ol class="questions">
+            <li>Are clean vector or transparent masters available for both logo variants?</li>
+            <li>What are the official color values and exact horizontal-lockup font?</li>
+            <li>What is the verified founding and operating timeline?</li>
+            <li>Who should be named as founder, lead restorer, or spokesperson?</li>
+            <li>Which awards can be documented by year, show, and category?</li>
+            <li>Should vehicle sales become a permanent website section?</li>
+            <li>Which additional capabilities are standalone paid services?</li>
+            <li>Can Alex supply genuine matched before/after pairs?</li>
+            <li>Which posts contain the strongest true in-process images?</li>
+            <li>May still frames be extracted from Alex’s public reels?</li>
+            <li>Which phone number and booking route should be primary?</li>
+            <li>Is Alex Detail Studio a sub-brand, a service line, or only a hashtag variation?</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="sources" aria-labelledby="sources-title">
+        <div class="section-inner">
+          <header class="section-header">
+            <div><span class="section-number">10 / Sources</span></div>
+            <div><h2 id="sources-title">Primary evidence.</h2><p class="lede">Public Facebook surfaces reviewed on August 28, 2026. Reopen original posts and obtain production-resolution files before launch.</p></div>
+          </header>
+          <ul class="source-list">
+            <li><a href="https://www.facebook.com/profile.php?id=100064902093722" target="_blank" rel="noreferrer">Alex Car Restoration Facebook profile</a><span>Brand, bio, services, audience</span></li>
+            <li><a href="https://www.facebook.com/photo/?fbid=1190997739740285&amp;set=a.568524291987636" target="_blank" rel="noreferrer">Current cover photo</a><span>Mercedes workshop hero</span></li>
+            <li><a href="https://www.facebook.com/photo/?fbid=568524311987634&amp;set=a.568524295320969" target="_blank" rel="noreferrer">Profile image / circular mark</a><span>Primary logo evidence</span></li>
+            <li><a href="https://www.facebook.com/permalink.php?story_fbid=1287474380092620&amp;id=100064902093722" target="_blank" rel="noreferrer">Datsun 240Z full frame-off restoration</a><span>Hero, scope, coating, Best of Show</span></li>
+            <li><a href="https://www.facebook.com/permalink.php?story_fbid=1204368588403200&amp;id=100064902093722" target="_blank" rel="noreferrer">1968 Mercedes-Benz 280SL frame-on restoration</a><span>Bodywork, paint, detailing</span></li>
+            <li><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0NkmTDzDwcjHR8f463s9HwoYtCk6GAUCJWjhq6Rro79mRJdtDCLVSFK57vuEyPuzHl&amp;id=100064902093722" target="_blank" rel="noreferrer">Vespa 50S frame-off restoration</a><span>Finished project and details</span></li>
+            <li><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0CiEsuipyrYiknchRo7sRH1PRMCbssSJY6JEGVRFpMfyStpcBsB4r3h2GhsPgToTGl&amp;id=100064902093722" target="_blank" rel="noreferrer">Car-show tradition and awards feature</a><span>Trophies, team, event proof</span></li>
+            <li><a href="https://www.facebook.com/profile/100064902093722/search/?q=ceramic%20coating" target="_blank" rel="noreferrer">Ceramic-coating search results</a><span>PPF removal and protection work</span></li>
+            <li><a href="https://tinyurl.com/alexcarbooking" target="_blank" rel="noreferrer">Public booking link</a><span>Current conversion route</span></li>
+          </ul>
+          <p class="fine-print" style="margin-top:30px">For the full evidence inventory, confidence notes, additional source links, and verbatim research rationale, see the companion Markdown report.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner"><strong>Alex Car Restoration</strong><p><b>Internal research artifact.</b> This presentation is a visual translation of public evidence, not an approved public website or a replacement for official brand assets. If a claim or capability cannot be sourced or supplied, mark it UNKNOWN and leave it out.</p></div>
+    </footer>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('.mobile-bar button');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuButton.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close section menu' : 'Open section menu');
+      menuButton.textContent = open ? '×' : '☰';
+    });
+    mobileNav.addEventListener('click', (event) => {
+      if (!event.target.matches('a')) return;
+      mobileNav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open section menu');
+      menuButton.textContent = '☰';
+    });
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const desktopLinks = [...document.querySelectorAll('.sidebar nav a')];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      desktopLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id));
+    }, { rootMargin: '-15% 0px -65% 0px', threshold: [0, .2, .5] });
+    sections.forEach(section => sectionObserver.observe(section));
+
+  </script>
+</body>
+</html>
