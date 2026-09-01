@@ -37,10 +37,17 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var out = form.querySelector('[data-demo-result]');
-      if (out) {
-        out.textContent = 'Demo only — this mock has no backend. On the live site this enquiry would be emailed to the shop and logged for follow-up.';
-        out.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var fields = form.querySelector('[data-demo-fields]');
+      var success = form.querySelector('[data-demo-success]');
+      if (fields && success) {
+        fields.hidden = true;
+        success.hidden = false;
+        success.focus();
       }
     });
   }

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact &amp; Booking — Alex Car Restoration</title>
-<meta name="description" content="Book a restoration, detailing or ceramic coating at Alex Car Restoration, Quezon City.">
+<title>Project Assessment — Alex Car Restoration</title>
+<meta name="description" content="Request an initial restoration, detailing or ceramic coating assessment from Alex Car Restoration, Quezon City.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="img/alex-circular-mark.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
         <a href="awards.html">Awards</a>
         <a href="about.html">About</a>
         <a href="contact.html" aria-current="page">Contact</a>
-      <a class="btn btn--light btn--sm nav-cta" href="contact.html">Book a restoration</a>
+      <a class="btn btn--light btn--sm nav-cta" href="contact.html">Request an assessment</a>
     </nav>
   </div>
 </header>
@@ -39,8 +39,8 @@
 <section class="page-head">
   <div class="wrap">
     <p class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact</p>
-    <h1>Book your restoration</h1>
-    <p class="lede">Tell us the vehicle, the condition and what you want back. Send photos if you have them &mdash; it saves a trip and gives you a straighter answer.</p>
+    <h1>Request a project assessment</h1>
+    <p class="lede">Tell us about the vehicle, its condition and the result you want. The proposed live flow qualifies the project before the team arranges an inspection.</p>
   </div>
 </section>
 
@@ -49,25 +49,26 @@
     <div class="contact-grid">
       <div class="reveal">
         <p class="label">Enquiry</p>
-        <form data-demo-form novalidate>
+        <form data-demo-form>
+          <div data-demo-fields>
           <div class="row-2">
             <div class="field">
               <label for="name">Your name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Juan Dela Cruz">
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Juan Dela Cruz" required>
             </div>
             <div class="field">
               <label for="phone">Mobile number</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="09XX XXX XXXX">
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required>
             </div>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
           </div>
           <div class="row-2">
             <div class="field">
               <label for="vehicle">Vehicle (year and model)</label>
-              <input id="vehicle" name="vehicle" type="text" placeholder="1968 Mercedes-Benz 280SL">
+              <input id="vehicle" name="vehicle" type="text" placeholder="1968 Mercedes-Benz 280SL" required>
             </div>
             <div class="field">
               <label for="service">What do you need?</label>
@@ -83,13 +84,47 @@
           </div>
           <div class="field">
             <label for="message">Condition and what you want back</label>
-            <textarea id="message" name="message" placeholder="Running or not, known rust or accident history, whether it has been repainted before, and how you want it finished."></textarea>
+            <textarea id="message" name="message" placeholder="Running or not, known rust or accident history, whether it has been repainted before, and how you want it finished." required></textarea>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label for="timing">When would you like to begin?</label>
+              <select id="timing" name="timing">
+                <option>As soon as the shop is available</option>
+                <option>Within 3 months</option>
+                <option>Within 6 months</option>
+                <option>Still planning</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="budget">Working budget</label>
+              <select id="budget" name="budget">
+                <option>Prefer to discuss after assessment</option>
+                <option>Under PHP 250,000</option>
+                <option>PHP 250,000–500,000</option>
+                <option>PHP 500,000–1,000,000</option>
+                <option>PHP 1,000,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field file-field">
+            <label for="photos">Vehicle photos</label>
+            <input id="photos" name="photos" type="file" accept="image/*" multiple>
+            <span class="field-hint">For the live site: exterior, interior, engine bay and visible damage. Up to 10 images.</span>
           </div>
           <div class="btn-row">
-            <button class="btn" type="submit">Send enquiry <span class="arrow">&rarr;</span></button>
+            <button class="btn" type="submit">Request an assessment <span class="arrow">&rarr;</span></button>
             <a class="btn btn--ghost" href="https://tinyurl.com/alexcarbooking" target="_blank" rel="noopener">Use the booking link</a>
           </div>
-          <p class="form-note" data-demo-result>This is a concept mock. The form is not connected &mdash; submitting it will show a confirmation message only.</p>
+          <p class="form-note">Concept interaction only. No information or files are sent from this mock.</p>
+          </div>
+          <div class="form-success" data-demo-success tabindex="-1" hidden>
+            <span class="service-no">Enquiry preview</span>
+            <h2>Thank you. The shop has what it needs to assess the project.</h2>
+            <p>On the live site, the team would receive the vehicle details and photos, then reply with initial questions or arrange an inspection.</p>
+            <p class="note">This is the proposed confirmation state. No information was transmitted.</p>
+            <a class="btn btn--ghost" href="contact.html">Start over</a>
+          </div>
         </form>
       </div>
 
@@ -124,7 +159,7 @@
 <section class="section--dark section--tight">
   <div class="wrap">
     <p class="label on-dark">What to send</p>
-    <div class="steps reveal" style="grid-template-columns:repeat(4,1fr)">
+    <div class="steps steps--four reveal">
       <div class="step"><div class="step-no">01</div><h3>The car</h3><p>Year, model, and whether it currently runs.</p></div>
       <div class="step"><div class="step-no">02</div><h3>Photos</h3><p>Exterior from all four corners, interior, engine bay, and any damage.</p></div>
       <div class="step"><div class="step-no">03</div><h3>History</h3><p>Previous repaint, accident or rust repair, and parts already replaced.</p></div>

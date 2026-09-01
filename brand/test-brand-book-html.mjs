@@ -44,14 +44,14 @@ assert.doesNotMatch(html, /class="[^"]*\breveal\b/i, "content does not depend on
 assert.ok(existsSync(vercelConfigPath), "Vercel configuration exists at the repository root");
 
 const vercelConfig = JSON.parse(readFileSync(vercelConfigPath, "utf8"));
-const rootRewrite = vercelConfig.rewrites?.find(({ source }) => source === "/");
+const brandBookRewrite = vercelConfig.rewrites?.find(({ source }) => source === "/brand-book");
 const assetRewrite = vercelConfig.rewrites?.find(({ source }) => source === "/assets/:path*");
 
 assert.equal(vercelConfig.$schema, "https://openapi.vercel.sh/vercel.json", "uses Vercel's current configuration schema");
-assert.equal(rootRewrite?.destination, "/brand/alex-car-restoration-brand-book.html", "serves the brand book at the site root");
+assert.equal(brandBookRewrite?.destination, "/brand/alex-car-restoration-brand-book.html", "serves the brand book at its public route");
 assert.equal(assetRewrite?.destination, "/brand/assets/:path*", "keeps the HTML's existing asset URLs working");
 
-const routedDocument = rootRewrite.destination.slice(1);
+const routedDocument = brandBookRewrite.destination.slice(1);
 const routedImage = assetRewrite.destination.replace(":path*", "datsun-240z-workshop-hero.jpg").slice(1);
 
 assert.ok(existsSync(join(root, routedDocument)), "root route resolves to the real HTML document");
